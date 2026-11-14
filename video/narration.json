@@ -1,0 +1,35 @@
+{
+  "S1Result": [
+    "If your pipeline splits Playwright tests across shards, the newest release can turn a green build red.",
+    "A filter that matches no tests used to pass on every shard.",
+    "On version one point six five, every shard fails. Sixteen shards. Sixteen red jobs.",
+    "Here is what changed, and what did not."
+  ],
+  "S2Setup": [
+    "The suite has thirty two tests. I ran it on two Playwright versions. The old one and the new one.",
+    "Each run selects between zero and sixteen tests, and splits them across two to sixteen shards.",
+    "That is one thousand four hundred and sixty four runs. I recorded the exit code of every one."
+  ],
+  "S3Zero": [
+    "Select zero tests without shards, and both versions fail with no tests found.",
+    "Add shards on the old version, and every shard passes. Sharding hid the error.",
+    "On the new version every shard fails, the same as the run without shards."
+  ],
+  "S4Empty": [
+    "An empty shard is still fine. Spread one test across sixteen shards, and fifteen have nothing to run.",
+    "All of them pass on both versions. Across one hundred and eighty jobs, not one shard failed."
+  ],
+  "S5Exception": [
+    "One case still slips through. Rerunning only the last failed tests, after a green run.",
+    "Without shards it fails with no tests found. With shards it runs nothing, and still exits zero."
+  ],
+  "S6Fix": [
+    "So decide what an empty run means in your pipeline.",
+    "If it is normal, like a docs only pull request, add the pass with no tests flag.",
+    "If it means your filter is broken, leave the flag off. The new version will fail the build.",
+    "One caveat. The suite is small and uses no browser. Check your own pipeline before you upgrade."
+  ],
+  "S7EndCard": [
+    "Every run and every number is in the public repo. The links are in the description."
+  ]
+}
