@@ -1,0 +1,8 @@
+{
+  "name": "poc-playwright-empty-shards",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "matrix": "node scripts/run-matrix.mjs"
+  }
+}
