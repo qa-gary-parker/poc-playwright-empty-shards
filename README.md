@@ -43,6 +43,12 @@ Filters that match no tests, without `--pass-with-no-tests` (`results/triggers.j
 
 With `--pass-with-no-tests`, every cell is exit 0.
 
+Notes on the filter runs:
+
+- `--last-failed` runs keep the `.last-run.json` of the green run on disk. Without that file, `--last-failed --shard=1/2` ran the suite (checked by hand on 1.65.1, not in the script).
+- `--only-changed` runs use a clean git tree. An untracked non-test file gave the same exit codes (checked by hand on 1.65.1, not in the script).
+- `playwright-shard-balancer` left a different number of shards empty than Playwright's split in 36 of 96 paired jobs, with the same exit codes.
+
 ## Run it
 
 ```sh
